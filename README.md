@@ -1,2 +1,2 @@
-# k8s-deployment
-Deployment on Kubernetes via Jenkins
+# Jenkins
+Sipp calling using Opensips Server
