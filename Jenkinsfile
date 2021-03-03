@@ -19,10 +19,10 @@ pipeline {
     
     stage('Deploy APP') {
       steps {
-        sh "chmod +x *.sh"
+        sh "chmod +x configure.sh"
         sshagent(['k8suser']) {
           sh "scp -o StrictHostKeyChecking=no -q opensips.yaml k8suser@52.172.221.4:/home/k8suser"
-          sh "scp -o StrictHostKeyChecking=no -q *.sh k8suser@52.172.221.4:/home/k8suser"
+          sh "scp -o StrictHostKeyChecking=no -q configure.sh k8suser@52.172.221.4:/home/k8suser"
           script {
             try {
               sh "ssh k8suser@52.172.221.4 kubectl apply -f opensips.yaml"
@@ -30,10 +30,6 @@ pipeline {
               sh "ssh k8suser@52.172.221.4 kubectl apply -f opensips.yaml"
             } 
             sh "ssh k8suser@52.172.221.4 ./configure.sh"
-            sh "sleep 5"
-            sh "ssh k8suser@52.172.221.4 ./server.sh"
-            sh "sleep 5"
-            sh "ssh k8suser@52.172.221.4 ./client.sh"
           }
         }              
       }
