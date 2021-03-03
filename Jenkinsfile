@@ -33,7 +33,7 @@ pipeline {
             sh "sleep 5"
             sh "ssh k8suser@52.172.221.4 ./server.sh"
             sh "sleep 5"
-            sh "ssh k8suser@52.172.221.4 ./uac.sh"
+            sh "ssh k8suser@52.172.221.4 ./client.sh"
           }
         }              
       }
