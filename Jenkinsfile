@@ -12,7 +12,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/chetangautamm/jenkins-opensips.git'
+        git 'https://github.com/chetangautamm/k8s-deployment.git'
       }
     }
     
