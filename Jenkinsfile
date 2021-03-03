@@ -22,9 +22,7 @@ pipeline {
         sh "chmod +x *.sh"
         sshagent(['k8suser']) {
           sh "scp -o StrictHostKeyChecking=no -q opensips.yaml k8suser@52.172.221.4:/home/k8suser"
-          sh "scp -o StrictHostKeyChecking=no -q configure.sh k8suser@52.172.221.4:/home/k8suser"
-          sh "scp -o StrictHostKeyChecking=no -q server.sh k8suser@52.172.221.4:/home/k8suser"
-          sh "scp -o StrictHostKeyChecking=no -q uac.sh k8suser@52.172.221.4:/home/k8suser"
+          sh "scp -o StrictHostKeyChecking=no -q *.sh k8suser@52.172.221.4:/home/k8suser"
           script {
             try {
               sh "ssh k8suser@52.172.221.4 kubectl apply -f opensips.yaml"
