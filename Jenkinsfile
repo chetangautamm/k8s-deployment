@@ -20,12 +20,12 @@ pipeline {
     stage('Deploy APP') {
       steps {
         sh "chmod +x configure.sh"
-        sh "chmod +x uas.sh"
+        sh "chmod +x server.sh"
         sh "chmod +x uac.sh"
         sshagent(['k8suser']) {
           sh "scp -o StrictHostKeyChecking=no -q opensips.yaml k8suser@52.172.221.4:/home/k8suser"
           sh "scp -o StrictHostKeyChecking=no -q configure.sh k8suser@52.172.221.4:/home/k8suser"
-          sh "scp -o StrictHostKeyChecking=no -q uas.sh k8suser@52.172.221.4:/home/k8suser"
+          sh "scp -o StrictHostKeyChecking=no -q server.sh k8suser@52.172.221.4:/home/k8suser"
           sh "scp -o StrictHostKeyChecking=no -q uac.sh k8suser@52.172.221.4:/home/k8suser"
           script {
             try {
@@ -35,7 +35,7 @@ pipeline {
             } 
             sh "ssh k8suser@52.172.221.4 ./configure.sh"
             sh "sleep 5"
-            sh "ssh k8suser@52.172.221.4 ./uas.sh"
+            sh "ssh k8suser@52.172.221.4 ./server.sh"
             sh "sleep 5"
             sh "ssh k8suser@52.172.221.4 ./uac.sh"
           }
