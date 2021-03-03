@@ -1,4 +1,5 @@
 #!/bin/bash
+
 opensips_server=$(kubectl get pods -n default -o wide | grep opensips | awk '{print $1}');
 opensips_ip=$(kubectl get pods -n default -o wide | grep opensips | awk '{print $6}');
 uas=$(kubectl get pods -n default -o wide | grep 'uas' | awk '{print $1}');
