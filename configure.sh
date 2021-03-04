@@ -16,7 +16,7 @@ kubectl exec -i $opensips_server -n default -- bash -c "/etc/init.d/opensips sta
 #add user
 kubectl exec -i $opensips_server -n default -- bash -c "cd /usr/local/opensips_proxy/sbin/ && ./opensipsctl ul add chetan sip:chetan@$uas_ip:5080" ;
 kubectl exec -i $opensips_server -n default -- bash -c "/etc/init.d/opensips restart" ;
-kubectl exec -i $opensips_server -n default -- bash -c "/etc/init.d/opensips status && echo 'successsful'" ;
+kubectl exec -i $opensips_server -n default -- bash -c " echo 'successsful'" ;
 
 #edit uas pod
 kubectl exec -i $uas -n default -- bash -c "sed -i -e 's/172.21.112.222/$uac_ip/g' /home/sipp/sipp-3.4.1/uas_mod_orig.xml" ;
