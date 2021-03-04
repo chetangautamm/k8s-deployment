@@ -23,6 +23,7 @@ kubectl exec -i $uas -n default -- bash -c "sed -i -e 's/172.21.112.222/$uac_ip/
 
 #edit uac pod
 kubectl exec -i $uac -n default -- bash -c "sed -i -e 's/172.16.0.10/$uas_ip/g' /home/sipp/sipp-3.4.1/uac_mod.xml" ;
+tmux
 
 #start uas
 #kubectl exec -it $uas -n default -- bash -c "export TERM=xterm"; 
