@@ -35,8 +35,8 @@ pipeline {
             } 
             sh "sleep 10"
             sh "ssh k8suser@52.172.221.4 ./configure.sh"
-            sh "ssh k8suser@52.172.221.4 ./server.sh"
-            sh "ssh k8suser@52.172.221.4 ./client.sh"
+            sh "ssh -t k8suser@52.172.221.4 ./server.sh"
+            sh "ssh -t k8suser@52.172.221.4 ./client.sh"
           }
         }              
       }
