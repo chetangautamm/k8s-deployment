@@ -31,5 +31,5 @@ kubectl exec -i $uas -n default -- bash -c "export TERM=xterm && ./sipp -sf uas_
 
 #start uac
 #kubectl exec -it $uac -n default -- bash -c "export TERM=xterm" ;
-kubectl exec -i $uac -n default -- bash -c "export TERM=xterm && ./sipp -sf uac_mod.xml $opensips_ip:5060 -s chetan -i $uac_ip -p 5065  -m 1000 -r 2000 -rp 8000 " ;
+kubectl exec -i $uac -n default -- bash -c "export TERM=xterm && ./sipp -sf uac_mod.xml $opensips_ip:5060 -s chetan -i $uac_ip -p 5065  -m 1000 -r 2000 -rp 10000 " ;
 #kubectl exec -i $uac -n default -- bash -c "echo $?" ;
