@@ -37,6 +37,7 @@ pipeline {
         sshagent(['k8suser']) {
           sh "scp -o StrictHostKeyChecking=no -q configure.sh k8suser@52.172.221.4:/home/k8suser"
           script {
+            sh "sleep 10"
             sh "ssh k8suser@52.172.221.4 ./configure.sh"
           }
         }              
