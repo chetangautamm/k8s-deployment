@@ -26,11 +26,10 @@ kubectl exec -i $uac -n default -- bash -c "sed -i -e 's/172.16.0.10/$uas_ip/g' 
 
 #start uas
 #kubectl exec -it $uas -n default -- bash -c "export TERM=xterm"; 
-kubectl exec -i $uas -n default -- bash -c "export TERM=xterm && ./sipp -sf uas_mod_orig.xml -rsa $opensips_ip:5060 -i $uas_ip -p 5080 " ;
+#kubectl exec -i $uas -n default -- bash -c "export TERM=xterm && ./sipp -sf uas_mod_orig.xml -rsa $opensips_ip:5060 -i $uas_ip -p 5080 " ;
 #kubectl exec -i $uas -n default -- bash -c "echo $?" ;
 
 #start uac
 #kubectl exec -it $uac -n default -- bash -c "export TERM=xterm" ;
-export TERM=xterm
-kubectl exec -i $uac -n default -- bash -c "export TERM=xterm && ./sipp -sf uac_mod.xml $opensips_ip:5060 -s chetan -i $uac_ip -p 5065  -m 10 -r 10 -rp 1000 " ;
+#kubectl exec -i $uac -n default -- bash -c "export TERM=xterm && ./sipp -sf uac_mod.xml $opensips_ip:5060 -s chetan -i $uac_ip -p 5065  -m 10 -r 10 -rp 1000 " ;
 #kubectl exec -i $uac -n default -- bash -c "echo $?" ;
