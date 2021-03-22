@@ -43,31 +43,5 @@ pipeline {
         }              
       }
     }
-    stage('Deploying Opensips CNF on Prod Environment') {
-      steps {
-        sshagent(['k8s-host1-local']) {
-          sh "scp -o StrictHostKeyChecking=no -q opensips.yaml k8s-host1@192.168.1.207:/home/k8s-host1"
-          script {
-            try {
-              sh "ssh k8s-host1@192.168.1.207 kubectl apply -f opensips.yaml"
-            }catch(error){
-              sh "ssh k8s-host1@192.168.1.207 kubectl apply -f opensips.yaml"
-            } 
-          }
-        }              
-      }
-    }
-    stage('Validating Opensips Using SIPp on Prod Environment') {
-      steps {
-        sh "chmod +x configure.sh"
-        sshagent(['k8s-host1-local']) {
-          sh "scp -o StrictHostKeyChecking=no -q configure.sh k8s-host1@192.168.1.207:/home/k8s-host1"
-          script {
-            sh "sleep 10"
-            sh "ssh k8s-host1@192.168.1.207 ./configure.sh"
-          }
-        }              
-      }
-    }
   }
 }
