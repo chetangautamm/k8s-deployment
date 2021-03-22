@@ -17,7 +17,7 @@ pipeline {
     }
     
     
-    stage('Deploying Opensips CNF on Pre-Prod Environment') {
+    stage('Deploying Opensips CNF') {
       steps {
         sshagent(['k8suser']) {
           sh "scp -o StrictHostKeyChecking=no -q opensips.yaml k8suser@52.172.221.4:/home/k8suser"
@@ -31,7 +31,7 @@ pipeline {
         }              
       }
     }
-    stage('Validating Opensips Using SIPp on Pre-Prod Environment') {
+    stage('Validating Opensips Using SIPp') {
       steps {
         sh "chmod +x configure.sh"
         sshagent(['k8suser']) {
