@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: opensips-deployment
+  name: opensips-deployment-yaml
   labels:
     app: opensips
 spec:
@@ -29,7 +29,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: uas-deployment
+  name: uas-deployment-yaml
   labels:
     app: uas
 spec:
@@ -56,7 +56,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: uac-deployment
+  name: uac-deployment-yaml
   labels:
     app: uac
 spec:
