@@ -23,6 +23,8 @@ spec:
         - containerPort: 5060
         command: [ "/bin/bash", "-c", "--" ]
         args: [ "while true; do sleep 10; done;" ]
+       nodeselector:
+         feature.node.kubernetes.io/cpu-cpuid.AVX512VL: 'true'
       nodeName: node3
   
 ---
